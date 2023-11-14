@@ -1,23 +1,15 @@
 <script setup lang="ts">
-// import { ref } from 'vue'
-
-// defineProps<{ msg: string }>()
-
-// const count = ref(0)
 </script>
 
 <template>
   <div>
-    <!-- <input
-      type="text"
-      name="count"
-      className="border border-gray-400 p-1"
-      onChange={(e) => setCount(Number(e.target.value))}
-    /> -->
+    <!-- $emitで単方向(子->親) -->
+    <!-- ※v-modelを使うと双方向(状態<->テキストフィールド)が実現できます-->
     <input
       type="text"
       name="count"
       className="border border-gray-400 p-1"
+      @input="$emit('update:modelValue', $event.target.value)"
     />
   </div>
 </template>
